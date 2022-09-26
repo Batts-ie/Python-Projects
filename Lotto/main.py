@@ -11,7 +11,7 @@ def lotto_45(wieoft, wieviel):
 def statistic():
     stat_dic = {}
     for i in range(1000):
-        v = lotto_45(1, 46)[0]  # [0] um das erste element der liste zu bekommen , funfact [-1] ist es letzte elem
+        v = lotto_45(1, 46)[0]  # [0] um das erste Element der Liste zu bekommen,[-1] ist das letzte Elem
         stat_dic.update({i: v})
     return stat_dic
 
@@ -31,4 +31,4 @@ if __name__ == "__main__":
     #plt.rcParams["figure.figsize"] = (10, 6)
     #plt.plot(stat_dic.keys(), stat_dic.values(), linestyle="-", label="Statistic")
     #plt.legend()
-    #plt.show()
+    #plt.show() wirft module 'backend_interagg' has no attribute 'FigureCanvas'. Did you mean: 'FigureCanvasAgg'?
