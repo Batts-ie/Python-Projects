@@ -21,14 +21,14 @@ if __name__ == "__main__":
     print(lotto_45(6, 46))
     ##Aufgabe 2
     print(statistic())
-    #stat_dic = statistic()
+    stat_dic = statistic()
     # print(stat_dic)
 
     # Add some spice https://www.python-graph-gallery.com/all-charts/
     # pip3 install matplotlib
-    ##import matplotlib.pyplot as plt
+    import matplotlib.pyplot as plt
 
-    #plt.rcParams["figure.figsize"] = (10, 6)
-    #plt.plot(stat_dic.keys(), stat_dic.values(), linestyle="-", label="Statistic")
-    #plt.legend()
-    #plt.show() wirft module 'backend_interagg' has no attribute 'FigureCanvas'. Did you mean: 'FigureCanvasAgg'?
+    plt.rcParams["figure.figsize"] = (10, 6)
+    plt.plot(stat_dic.keys(), stat_dic.values(), linestyle="-", label="Statistic")
+    plt.legend()
+    plt.show() #wirft module 'backend_interagg' has no attribute 'FigureCanvas'. Did you mean: 'FigureCanvasAgg'?
