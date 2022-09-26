@@ -1,7 +1,7 @@
 import random
 
 
-def lotto_45(wieoft, wieviel):
+def lotto_45(wieoft, wieviel): # 2 params for the second task
     list = []
     list.extend(range(1, wieviel))
     winning_numbers = random.sample(list, wieoft)
@@ -22,13 +22,13 @@ if __name__ == "__main__":
     ##Aufgabe 2
     print(statistic())
     stat_dic = statistic()
-    # print(stat_dic)
+    #print(stat_dic)
 
-    # Add some spice https://www.python-graph-gallery.com/all-charts/
-    # pip3 install matplotlib
+    # extra task: plot - https://www.python-graph-gallery.com/all-charts/
+    # pip3 install matplotlib==3.5.3
     import matplotlib.pyplot as plt
 
     plt.rcParams["figure.figsize"] = (10, 6)
-    plt.plot(stat_dic.keys(), stat_dic.values(), linestyle="-", label="Statistic")
+    plt.plot(stat_dic.keys(), stat_dic.values(), color="lightgreen", linestyle="-", label="Statistic")
     plt.legend()
     plt.show() #wirft module 'backend_interagg' has no attribute 'FigureCanvas'. Did you mean: 'FigureCanvasAgg'?
