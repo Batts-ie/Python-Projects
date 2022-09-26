@@ -31,4 +31,4 @@ if __name__ == "__main__":
     plt.rcParams["figure.figsize"] = (10, 6)
     plt.plot(stat_dic.keys(), stat_dic.values(), color="lightgreen", linestyle="-", label="Statistic")
     plt.legend()
-    plt.show() #wirft module 'backend_interagg' has no attribute 'FigureCanvas'. Did you mean: 'FigureCanvasAgg'?
+    plt.show()
