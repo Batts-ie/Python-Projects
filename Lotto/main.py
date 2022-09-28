@@ -1,10 +1,10 @@
 import random
 
 
-def lotto_45(wieoft, wieviel): # 2 params for the second task
+def lotto_45(nrange, wieviel): # 2 params for the second task
     list = []
     list.extend(range(1, wieviel))
-    winning_numbers = random.sample(list, wieoft)
+    winning_numbers = random.sample(list, nrange)
     return winning_numbers
 
 
