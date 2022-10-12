@@ -1,5 +1,6 @@
 import random
-
+from dotenv import load_dotenv
+import os
 
 def lotto_45(nrange, wieviel): # 2 params for the second task
     list = []
@@ -17,6 +18,7 @@ def statistic():
 
 
 if __name__ == "__main__":
+    ##load_dotenv(".env")
     # Aufgabe 1
     print(lotto_45(6, 46))
     ##Aufgabe 2
