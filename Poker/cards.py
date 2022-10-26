@@ -10,5 +10,26 @@ RANKS = {
         'Set': 300,
         'TwoPairs': 200,
         'Pair': 100,
-        'High': 0
-        }
+        'High': 50
+}
+
+
+class Card:
+    def __init__(self, rank:int, suit:str):
+        self.rank = rank
+        self.suit = suit
+
+    def get_card_by_name(self):
+            if self.rank == 1 or self.rank == 14:
+                return "Ace"
+            elif self.rank == 11:
+                return "Jack"
+            elif self.rank == 12:
+                return "Queen"
+            elif self.rank == 13:
+                return "King"
+            else:
+                return str(self.rank)
+
+    def show(self):
+        print("{} of {}".format(self.get_card_by_name(), self.suit))
