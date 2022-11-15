@@ -29,11 +29,15 @@ def do_statistics(rounds: int = 100000):
         pass
 
 
-if __name__ == "__main__":
+def do():
     rounds = 1000000
     do_statistics(rounds)
     print(statistics)
     for key in reversed(statistics.keys()):
-        print(key + ":"+str(statistics[key] / rounds * 100)+"%")
+        print(key + ":" + str(statistics[key] / rounds * 100) + "%")
         # game = PokerGame()
         # game()
+
+
+if __name__ == "__main__":
+    do()

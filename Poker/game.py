@@ -23,7 +23,7 @@ class Deck:
     def build(self):
         # XXX: Limit to 52 cards, and each Card is unique
         for s in ["Spades", "Clubs", "Diamonds", "Hearts"]:
-            for v in range(1, 14):
+            for v in range(2, 14 + 1):
                 self.cards.append(Card(v, s))
 
     def show(self):
@@ -72,23 +72,13 @@ class PokerGame:
         # print("Player 1:")
         for card in self.player1:
             card.show()
-        """
-        print("Player 2:")
-        for card in self.player2:
-            card.show()
-        """
 
     def winningCondition(self, player):
         # XXX: Check for winning condition
         def is_high():
             return True
-            """
-            for card in player:
-                if card.rank == 14 or card.rank == 1:
-                    return True
-            return False
-            """
 
+        # [1,3,3,4,4]
         def is_onepair():
             for card in player:
                 if list(filter(lambda x: x.rank == card.rank, player)).__len__() == 2:
@@ -106,7 +96,7 @@ class PokerGame:
                     temp_card = card
                     pair_counter += 1
             if pair_counter == 2:
-                #print(self.showHands())
+                # print(self.showHands())
                 return True
             return False
 
@@ -116,26 +106,25 @@ class PokerGame:
                     return True
             return False
 
-        def is_straight():
+        def is_straight(ace_as_lowest: bool = True):
             straight_counter = 0
-            temp_hand = sorted(player, key=lambda c: c.__dir__())
-            for card in temp_hand:
-                if list(filter(lambda x: x.rank == card.rank + 1, temp_hand)).__len__() == 1:
-                    straight_counter += 1
-            if straight_counter == 5:
-                return True
-            return False
+            temp_hand = sorted(player, key=lambda c: c.rank)
+            if ace_as_lowest:
+                ace_amount = sum(th.rank == 14 for th in temp_hand)
+                if ace_amount > 1:
+                    return False
+                if ace_amount == 1:
+                    if all(temp_hand[i].rank == i + 2 for i in range(0, len(temp_hand) - 1)):
+                        return True
+            return all(temp_hand[i].rank + 1 == temp_hand[i + 1].rank for i in range(len(temp_hand) - 1))
 
         def is_flush():
-            for card in player:
-                if list(filter(lambda x: x.suit == card.suit, player)).__len__() == 5:
-                    return True
+            if list(filter(lambda x: x.suit == player[0].suit, player)).__len__() == 5:
+                return True
             return False
 
         def is_fullhouse():
-            if three_of_a_kind() and is_onepair():
-                return True
-            return False
+            return three_of_a_kind() and is_onepair()
 
         def is_four_of_a_kind():
             for card in player:
@@ -143,13 +132,11 @@ class PokerGame:
                     return True
             return False
 
-        def is_straightflush():
-            if is_straight() and is_flush():
-                return True
-            return False
+        def is_straightflush(ace_as_lowest=True):
+            return is_straight(ace_as_lowest) and is_flush()
 
         def is_royalflush():
-            if is_straightflush() and is_high():
+            if is_straightflush(False) and sorted(player, key=lambda c: c.rank)[-1].rank == 14:
                 return True
             return False
 
@@ -165,9 +152,29 @@ class PokerGame:
             is_onepair: 'Pair',
             is_high: 'High'
         }
-
+        """
         for methode in is_methodes.keys():
             if methode() and methode.__name__ != is_high.__name__:
                 return is_methodes[methode]
                 # return is_methodes[methode]
+        return is_methodes[is_high]
+        """
+        if is_royalflush():
+            return is_methodes[is_royalflush]
+        if is_straightflush():
+            return is_methodes[is_straightflush]
+        if is_four_of_a_kind():
+            return is_methodes[is_four_of_a_kind]
+        if is_fullhouse():
+            return is_methodes[is_fullhouse]
+        if is_flush():
+            return is_methodes[is_flush]
+        if is_straight():
+            return is_methodes[is_straight]
+        if three_of_a_kind():
+            return is_methodes[three_of_a_kind]
+        if is_twopair():
+            return is_methodes[is_twopair]
+        if is_onepair():
+            return is_methodes[is_onepair]
         return is_methodes[is_high]
