@@ -30,7 +30,7 @@ def do_statistics(rounds: int = 100000):
 
 
 def do():
-    rounds = 1000000
+    rounds = int(input("How many rounds do you want to play?: "))
     do_statistics(rounds)
     print(statistics)
     for key in reversed(statistics.keys()):
