@@ -132,13 +132,11 @@ class PokerGame:
                     return True
             return False
 
-        def is_straightflush(ace_as_lowest=True):
-            return is_straight(ace_as_lowest) and is_flush()
+        def is_straightflush():
+            return is_straight() and is_flush()
 
         def is_royalflush():
-            if is_straightflush(False) and sorted(player, key=lambda c: c.rank)[-1].rank == 14:
-                return True
-            return False
+            return is_straight(False) and is_flush() and sorted(player, key=lambda c: c.rank)[-1].rank == 14
 
         is_methodes = {
             is_royalflush: 'RoyalFlush',
