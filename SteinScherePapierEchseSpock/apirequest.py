@@ -2,7 +2,7 @@ import requests #pip install requests
 
 # Sends an api request, returns status code; 0 means there was an exception
 # The username should NOT contain any spaces and the vote variables have to be positive INT
-def sendRequest(username, voteScissors, voteRock, votePaper, voteSpock, voteLizard, apiIP = "http://127.0.0.1:5000"):
+def sendRequest(username, voteScissors, voteRock, votePaper, voteSpock, voteLizard, apiIP = "http://127.0.0.1:8888"):
     reqUrl = apiIP + "/v1/updateRecord"
     reqUrl+= "?username=" + str(username) + "&voteScissors=" + str(voteScissors)
     reqUrl+= "&voteRock=" + str(voteRock) + "&votePaper=" + str(votePaper)
