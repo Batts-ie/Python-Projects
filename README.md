@@ -8,6 +8,7 @@ Project Organization
     ├── folders
     │   ├── lotto         <- lotto project folder
     │   ├── Poker
+    │   ├── Company
     |   ├── SteinScherePapierEchseSpock
     │   ├── idk yet      <- do you know?
     │   └── idk yet either             <- I swear I thought I asked it already 🤔
