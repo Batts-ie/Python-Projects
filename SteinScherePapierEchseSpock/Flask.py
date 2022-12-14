@@ -26,13 +26,6 @@ def get():
     return jsonify(data)
 
 
-# methods=["POST"] wird angegeben wenn, daten vom client and die FlaskAPI "geposted" werden
-@app.route("/add", methods=['POST'])
-def add():
-    data = request.json  # holt daten geposted vom client
-    # TODO: Code zum hochladen/inserten der Daten aus der Datenbank
-
-
 # client sendet Daten and die FlaskAPI und die FlaskAPI sendet dann andere oder dieselben Daten an den CLient
 @app.route("/add", methods=['POST', 'GET'])
 def add():

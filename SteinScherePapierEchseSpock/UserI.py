@@ -1,6 +1,6 @@
 import gamelogic_a
 import gamelogic_m
-import databasehandler
+##import databasehandler
 def againstAI():
     print("Difficulty of the AI")
     print("e ... Easy AI")              # using Random numbers
@@ -58,9 +58,9 @@ def stats():
     if usinput == "y":
         dbPath = r"C:\Users\Michi\Desktop\Schule\5AHWII\Python\SWP_PY\SteinScherePapierEchseSpock\StScPaLiSp_Python.db"
         print("Here can you see your statistic:")
-        databasehandler.selectResult(dbPath)
+        """databasehandler.selectResult(dbPath)
         databasehandler.selectUser(dbPath)
-        databasehandler.selectAI(dbPath)
+        databasehandler.selectAI(dbPath)"""
         print("\nb ... Back to menu")
         print("e ... Exit the game")
         usinput = input("Choose your option: \n")

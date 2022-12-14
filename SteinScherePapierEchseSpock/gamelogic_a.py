@@ -1,6 +1,6 @@
 import random
 import UserI
-import databasehandler
+#import databasehandler
 #import replit as replit
 
 
@@ -20,19 +20,19 @@ def numbertoString(n):
 def logic(n, u):
     type(n)
     type(u)
-    databaseT = r"C:\Users\danis\PycharmProjects\5AHW\SteinScherePapierEchseSpock\StScPaLiSp_Python.db"
+    #databaseT = r"C:\Users\danis\PycharmProjects\5AHW\SteinScherePapierEchseSpock\StScPaLiSp_Python.db"
     compare = n - u + 5
     if compare % 5 == 0:
         result = "draw"
-        databasehandler.insert(databaseT, numbertoString(n), numbertoString(u), result)
+        #databasehandler.insert(databaseT, numbertoString(n), numbertoString(u), result)
         return "draw"
     if (compare % 5 + 1) % 2 == 0:
         result = "win"
-        databasehandler.insert(databaseT, numbertoString(n), numbertoString(u), result)
+        #databasehandler.insert(databaseT, numbertoString(n), numbertoString(u), result)
         return "win"
     if (compare % 5) % 2 == 0:
         result = "lose"
-        databasehandler.insert(databaseT, numbertoString(n), numbertoString(u), result)
+        #databasehandler.insert(databaseT, numbertoString(n), numbertoString(u), result)
         return "lose"
 
 
