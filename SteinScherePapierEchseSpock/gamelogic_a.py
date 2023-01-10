@@ -2,6 +2,7 @@ import random
 import UserI
 #import databasehandler
 #import replit as replit
+import mysql.connector
 
 
 def numbertoString(n):
@@ -20,7 +21,6 @@ def numbertoString(n):
 def logic(n, u):
     type(n)
     type(u)
-    #databaseT = r"C:\Users\danis\PycharmProjects\5AHW\SteinScherePapierEchseSpock\StScPaLiSp_Python.db"
     compare = n - u + 5
     if compare % 5 == 0:
         result = "draw"
@@ -59,7 +59,14 @@ def game(level):
         if (user == True):
             print("User: " + numbertoString(userinput))
             print("BOT: " + numbertoString(compinput))
-            print(logic(userinput,compinput))
+            result = logic(userinput,compinput)
+            print(result)
+            conn = mysql.connector.connect(host = "localhost", user = "swp_rubner", password = "swp_rubner202223", database = "swp_rubner_stpes")
+            sql = "INSERT INTO games(player_hand, bot_hand, has_player_won) values(%s, %s, %s);"
+            sqlL = [userinput, compinput, result.__eq__("win")]
+            conn.cursor().execute(sql, sqlL)
+            conn.commit()
+            conn.close()
             userinputs = input("Continue playing [c] or back to menu [m]")
             if (userinputs.lower() == "m"):
                 gameover = True
