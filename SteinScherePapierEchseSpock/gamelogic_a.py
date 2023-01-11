@@ -63,8 +63,10 @@ def game(level):
             print(result)
             conn = mysql.connector.connect(host = "localhost", user = "swp_rubner", password = "swp_rubner202223", database = "swp_rubner_stpes")
             sql = "INSERT INTO games(player_hand, bot_hand, has_player_won) values(%s, %s, %s);"
+            #sql = "INSERT INTO games(player_hand) values(%s);" could do that instead of the upper statement
             sqlL = [userinput, compinput, result.__eq__("win")]
             conn.cursor().execute(sql, sqlL)
+            #conn.cursor().execute(sql, (userinput, )) could do that instead of the upper statement
             conn.commit()
             conn.close()
             userinputs = input("Continue playing [c] or back to menu [m]")
