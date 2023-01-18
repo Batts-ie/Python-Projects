@@ -54,6 +54,8 @@ def game(level):
         elif level == "m":
             pass
         elif level == "h":
+            sqlget_mostpicked = "select player_hand, COUNT(player_hand) AS MOST_TAKEN_HAND FROM GAMES GROUP BY player_hand ORDER BY MOST_TAKEN_HAND DESC LIMIT 1;"
+            conn.cursor().execute(sqlget_mostpicked)
             pass
         userinput = (int(userinputs))
         if (user == True):
