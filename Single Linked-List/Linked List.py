@@ -31,3 +31,43 @@ class LinkedList:
             current = current.next
         if current.next:
             current.next = current.next.next
+
+    def delete_at_pos(self, pos):
+        cur_node = self.head
+        if pos == 0:
+            self.head = cur_node.next
+            cur_node = None
+            return
+        prev = None
+        count = 0
+        while cur_node and count != pos:
+            prev = cur_node
+            cur_node = cur_node.next
+            count += 1
+        if cur_node is None:
+            return
+        prev.next = cur_node.next
+        cur_node = None
+
+    def print_list(self):
+        cur_node = self.head
+        while cur_node:
+            print(cur_node.data)
+            cur_node = cur_node.next
+
+    def menu(self):
+        repeat = True
+        answer = None
+        while(repeat):
+            answer = input("Löschen [l] - Suche [s] - Einfügen nachher [a] - Einfügen davor [b] "
+                           "- Knoten danach entfernen [d] - Knoten davor entfernen [v] \n - "
+                           "Sortieren ASC [o] - Sortieren DESC [u] - Beenden [any] ").lower()
+            if answer == "l":
+                self.delete()
+            elif answer == "s":
+                self.search()
+            elif answer == "a":
+                self.insert_after_node()
+            else:
+                repeat = False
+                print("leaving ....")
