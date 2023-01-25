@@ -18,6 +18,7 @@ def l_output(time, text, olist):
 
 
 def maintesting(unn=1):
+    pass
     messungen = {}
     llist = LinkedList.LinkedList
     perf_time = time.perf_counter()
@@ -28,6 +29,7 @@ def maintesting(unn=1):
     perf_time = time.perf_counter()
     llist.append(val)
     perf_time = time.perf_counter() - perf_time
+
 
 
 
