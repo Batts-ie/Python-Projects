@@ -2,8 +2,11 @@ class Node:
     def __init__(self, data=None, next=None):
         self.data = data
         self.next = next
+
     def __repr__(self):
         return str(self.data)
+
+
 class LinkedList(object):
     def __init__(self):
         self.head = None
@@ -17,6 +20,7 @@ class LinkedList(object):
 
     def __repr__(self):
         return ' -> '.join([str(node) for node in self])
+
     def insert_after_node(self, prev_node, data):
         if not prev_node:
             print("Previous node does not exist")
@@ -33,6 +37,7 @@ class LinkedList(object):
         else:
             self.tail.next = node
         self.tail = node
+
     def delete_by_value(self, data):
         if not self.head:
             return
@@ -71,16 +76,19 @@ class LinkedList(object):
             current = current.next
             index += 1
         return -1
+
     def delete(self):
         item_id = int(input("Welches Element sollte gelöscht werden?: "))
         self.delete_at_pos(item_id)
         print(self)
+
     def search(self):
         item_value = int(input("Welches Element soll gesucht werdne?: "))
         print(self.find_index(item_value))
 
     def swap_data(self, first, second):
         first.data, second.data = second.data, first.data
+
     def insertionSortASC(self):
         front = self.head
         while front is not None:
@@ -99,10 +107,11 @@ class LinkedList(object):
                 self.swap_data(back, back.prev)
                 back = back.prev
             front = front.next
+
     def menu(self):
         repeat = True
         answer = None
-        while(repeat):
+        while (repeat):
             answer = input("Löschen [l] - Suche [s] - Einfügen nachher [a] - Einfügen davor [b] "
                            "- Knoten danach entfernen [d] - Knoten davor entfernen [v] \n - "
                            "Sortieren ASC [o] - Sortieren DESC [u] - Beenden [any] ").lower()
@@ -115,4 +124,3 @@ class LinkedList(object):
             else:
                 repeat = False
                 print("leaving ....")
-
