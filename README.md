@@ -13,7 +13,7 @@ Project Organization
     |   ├── Single Linked List
     |   ├── Double Linked List
     │   ├── idk yet      <- do you know?
-    │   └── idk yet either             <- I swear I thought I asked it already 🤔
+    │   └── idk yet either             <- I swear I thought I asked about it already 🤔
     │
     ├── README.md          <- The top-level README for developers using this project.
     │
