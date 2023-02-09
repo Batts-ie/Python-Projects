@@ -10,6 +10,8 @@ Project Organization
     │   ├── Poker
     │   ├── Company
     |   ├── SteinScherePapierEchseSpock
+    |   ├── Single Linked List
+    |   ├── Double Linked List
     │   ├── idk yet      <- do you know?
     │   └── idk yet either             <- I swear I thought I asked it already 🤔
     │
