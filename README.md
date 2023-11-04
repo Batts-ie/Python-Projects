@@ -1,4 +1,4 @@
-# SWP_Python_22-23
+# Python Projects
 
 This is my repository of the year 2022 and 2023 of the HTL where all my projects will be uploaded at. 
 
