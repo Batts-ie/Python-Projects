@@ -15,6 +15,6 @@ Project Organization
     │   ├── idk yet      <- do you know?
     │   └── idk yet either             <- I swear I thought I asked about it already 🤔
     │
-    ├── README.md          <- The top-level README for developers using this project.
+    ├── README.md          <- The top-level README for developers using this project - aka no one haha.
     │
     └── end        <- end
